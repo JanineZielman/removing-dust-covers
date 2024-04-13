@@ -1,0 +1,19 @@
+{
+  "id": "showcase",
+  "label": "Showcase",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading1"
+        }
+      }
+    }
+  }
+}

@@ -3,6 +3,15 @@
     "page": {},
     "home": {},
     "navigation": {},
-    "settings": {}
+    "settings": {},
+    "experience": {},
+    "showcase": {}
+  },
+  "slices": {
+    "List": {
+      "default": {
+        "primary": {}
+      }
+    }
   }
 }

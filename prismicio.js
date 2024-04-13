@@ -25,6 +25,12 @@ export const linkResolver = (doc) => {
   if (doc.type === "page") {
     return `/${doc.uid}`;
   }
+  if (doc.type === "showcase") {
+    return `/showcase`;
+  }
+  if (doc.type === "experience") {
+    return `/experience`;
+  }
   return `/`;
 };
 

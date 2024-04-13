@@ -1,6 +1,83 @@
 {
   "uid": {
     "__TYPE__": "UIDContent",
-    "value": "supply"
+    "value": "missing"
+  },
+  "title": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "heading1",
+        "content": {
+          "text": "Rubber"
+        }
+      }
+    ]
+  },
+  "intro": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Cillum sunt nisi dolor velit excepteur veniam enim velit dolore. Dolore aute commodo consequat ullamco deserunt reprehenderit minim laborum irure. Nulla fugiat magna tempor reprehenderit."
+        }
+      }
+    ]
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": [
+      {
+        "key": "list$0ff50d12-f908-469e-8052-1910e037f348",
+        "name": "list",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {},
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": [
+                [
+                  "title",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "describe",
+                    "type": "Text"
+                  }
+                ],
+                [
+                  "subtitle",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "gasoline",
+                    "type": "Text"
+                  }
+                ],
+                [
+                  "lang",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "lesson",
+                    "type": "Text"
+                  }
+                ],
+                [
+                  "link",
+                  {
+                    "__TYPE__": "LinkContent",
+                    "value": {
+                      "__TYPE__": "ExternalLink",
+                      "url": "http://google.com"
+                    }
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      }
+    ]
   }
 }

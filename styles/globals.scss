@@ -64,11 +64,10 @@ header{
   a{
     color: white;
     text-decoration: none;
-    margin-left: 24px;
+    margin-left: 3vw;
     font-size: 24px;
   }
 }
-
 
 .hero{
   width: 100%;
@@ -78,5 +77,15 @@ header{
   top: 0;
   left: 0;
   z-index: -1;
-  // filter: brightness(0.8);
+}
+
+.page{
+  margin-top: 124px;
+  padding: 0 2vw;
+  .intro{
+    max-width: 600px;
+    font-size: 18px;
+    margin: auto;
+    text-align: center;
+  }
 }

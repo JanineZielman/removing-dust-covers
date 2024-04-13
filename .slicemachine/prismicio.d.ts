@@ -6,6 +6,30 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
+/** Content for Experience documents */
+interface ExperienceDocumentData {
+    /**
+     * Title field in *Experience*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: *None*
+     * - **API ID Path**: experience.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+}
+/**
+ * Experience document from Prismic
+ *
+ * - **API ID**: `experience`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ExperienceDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<ExperienceDocumentData>, "experience", Lang>;
 /** Content for Home documents */
 interface HomeDocumentData {
     /**
@@ -92,7 +116,46 @@ export interface NavigationDocumentDataMenuItem {
  */
 export type NavigationDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<NavigationDocumentData>, "navigation", Lang>;
 /** Content for Page documents */
-type PageDocumentData = Record<string, never>;
+interface PageDocumentData {
+    /**
+     * Title field in *Page*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Intro field in *Page*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.intro
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    intro: prismicT.RichTextField;
+    /**
+     * Slice Zone field in *Page*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<PageDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Page → Slice Zone*
+ *
+ */
+type PageDocumentDataSlicesSlice = ListSlice;
 /**
  * Page document from Prismic
  *
@@ -149,12 +212,105 @@ interface SettingsDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
-export type AllDocumentTypes = HomeDocument | NavigationDocument | PageDocument | SettingsDocument;
+/** Content for Showcase documents */
+interface ShowcaseDocumentData {
+    /**
+     * Title field in *Showcase*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: *None*
+     * - **API ID Path**: showcase.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+}
+/**
+ * Showcase document from Prismic
+ *
+ * - **API ID**: `showcase`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ShowcaseDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<ShowcaseDocumentData>, "showcase", Lang>;
+export type AllDocumentTypes = ExperienceDocument | HomeDocument | NavigationDocument | PageDocument | SettingsDocument | ShowcaseDocument;
+/**
+ * Item in List → Items
+ *
+ */
+export interface ListSliceDefaultItem {
+    /**
+     * Title field in *List → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: list.items[].title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Subtitle field in *List → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: list.items[].subtitle
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    subtitle: prismicT.KeyTextField;
+    /**
+     * Lang field in *List → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: list.items[].lang
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    lang: prismicT.KeyTextField;
+    /**
+     * Link field in *List → Items*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: list.items[].link
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link: prismicT.LinkField;
+}
+/**
+ * Default variation for List Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `List`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ListSliceDefault = prismicT.SharedSliceVariation<"default", Record<string, never>, Simplify<ListSliceDefaultItem>>;
+/**
+ * Slice variation for *List*
+ *
+ */
+type ListSliceVariation = ListSliceDefault;
+/**
+ * List Shared Slice
+ *
+ * - **API ID**: `list`
+ * - **Description**: `List`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ListSlice = prismicT.SharedSlice<"list", ListSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { HomeDocumentData, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocument, PageDocumentData, PageDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes };
+        export type { ExperienceDocumentData, ExperienceDocument, HomeDocumentData, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, ShowcaseDocumentData, ShowcaseDocument, AllDocumentTypes, ListSliceDefaultItem, ListSliceDefault, ListSliceVariation, ListSlice };
     }
 }
