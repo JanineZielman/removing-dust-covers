@@ -42,6 +42,11 @@ h1, h2, h3, h4, h5, h6{
 
 h1{
   font-size: 48px;
+  line-height: 1;
+}
+
+p{
+  line-height: 1.4;
 }
 
 header{
@@ -83,9 +88,49 @@ header{
   margin-top: 124px;
   padding: 0 2vw;
   .intro{
-    max-width: 600px;
+    max-width: 750px;
     font-size: 18px;
-    margin: auto;
-    text-align: center;
+  }
+}
+
+.list{
+  margin-top: 48px;
+  .list-item{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid $white;
+    padding: 10px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    div{
+      max-width: 80%;
+    }
+    &:after{
+      content: ">";
+      right: 10px;
+      font-size: 30px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &:hover{
+      background-color: $white;
+      color: $black;
+    }
+    p, h2{
+      margin: 0;
+      margin-right: 10px;
+    }
+    span{
+      margin-left: 5px;
+      background-color: $white;
+      color: $black;
+      display: block;
+      height: fit-content;
+      border-radius: 50%;
+      padding: 5px;
+      font-size: 10px;
+    }
   }
 }

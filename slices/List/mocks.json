@@ -26,9 +26,15 @@
           [
             "lang",
             {
-              "__TYPE__": "FieldContent",
-              "value": "angry",
-              "type": "Text"
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Cupidatat tempor mollit ea qui sint aliqua nostrud eu laboris nulla dolore cupidatat exercitation. Est anim irure officia officia ad Lorem eiusmod nulla elit ipsum occaecat sunt. Aliquip velit eiusmod dolore pariatur nisi tempor adipisicing irure fugiat nisi."
+                  }
+                }
+              ]
             }
           ],
           [

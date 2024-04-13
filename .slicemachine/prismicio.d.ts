@@ -265,13 +265,13 @@ export interface ListSliceDefaultItem {
     /**
      * Lang field in *List → Items*
      *
-     * - **Field Type**: Text
+     * - **Field Type**: Rich Text
      * - **Placeholder**: *None*
      * - **API ID Path**: list.items[].lang
-     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
-    lang: prismicT.KeyTextField;
+    lang: prismicT.RichTextField;
     /**
      * Link field in *List → Items*
      *

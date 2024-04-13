@@ -27,10 +27,12 @@
           }
         },
         "lang": {
-          "type": "Text",
+          "type": "StructuredText",
           "config": {
             "label": "Lang",
-            "placeholder": ""
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
           }
         },
         "link": {
