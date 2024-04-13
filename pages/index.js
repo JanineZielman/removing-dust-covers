@@ -35,7 +35,7 @@ const Index = ({ navigation, page, settings}) => {
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
       <div className="container home" id="home">
-        <video muted autoPlay loop className="hero">
+        <video muted autoPlay loop playsInline className="hero">
           <source src={page.data.video.url}type="video/mp4"/>
         </video>
       </div>
