@@ -1,0 +1,39 @@
+{
+  "siteTitle": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Duis sunt consectetur aliquip ea. Officia duis ex pariatur consectetur aliquip nostrud enim exercitation. Non in laboris nulla nisi cillum duis."
+        }
+      }
+    ]
+  },
+  "description": {
+    "__TYPE__": "FieldContent",
+    "value": "rod",
+    "type": "Text"
+  },
+  "image": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
+      "width": 6000,
+      "height": 4000
+    },
+    "url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f?rect=0%2C425%2C6000%2C3150&w=1200&h=630",
+    "width": 1200,
+    "height": 630,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 0,
+        "y": 425
+      },
+      "background": "transparent"
+    },
+    "thumbnails": {}
+  }
+}

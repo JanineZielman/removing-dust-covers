@@ -1,0 +1,27 @@
+{
+  "id": "home",
+  "label": "Home",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading1"
+        }
+      },
+      "video": {
+        "type": "Link",
+        "config": {
+          "label": "Video",
+          "placeholder": "",
+          "select": "media"
+        }
+      }
+    }
+  }
+}
