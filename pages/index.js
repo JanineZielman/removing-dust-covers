@@ -5,8 +5,22 @@ import { createClient } from "../prismicio";
 import { Layout } from "../components/Layout";
 import Link from "next/link";
 import { PrismicRichText } from "@prismicio/react";
+import { useEffect } from "react";
 
 const Index = ({ navigation, page, settings}) => {
+
+  function update(e){
+    var x = e.clientX || e.touches?.[0].clientX
+    var y = e.clientY || e.touches?.[0].clientY
+  
+    document.getElementById('home')?.style.setProperty('--cursorX', x + 'px')
+    document.getElementById('home')?.style.setProperty('--cursorY', y + 'px')
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousemove',update)
+    document.addEventListener('touchmove',update)
+  })
   return (
     <Layout
       navigation={navigation}
@@ -20,8 +34,8 @@ const Index = ({ navigation, page, settings}) => {
         <meta property="og:description" content={settings.data.description} />
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
-      <div className="container">
-      <video muted autoPlay loop className="hero">
+      <div className="container home" id="home">
+        <video muted autoPlay loop className="hero">
           <source src={page.data.video.url}type="video/mp4"/>
         </video>
       </div>
