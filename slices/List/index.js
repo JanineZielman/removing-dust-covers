@@ -12,7 +12,7 @@ const List = ({ slice }) => {
     <section className='list'>
       {slice.items.map((item, i) => {
         return(
-          <div className='list-item'>
+          <a className='list-item' target="_blank" href={item.link.url}>
             <div>
               <h2>{item.title}</h2>
               <p>{item.subtitle}</p>
@@ -22,7 +22,7 @@ const List = ({ slice }) => {
                 <span>{txt.text}</span>
               )
             })}
-          </div>
+          </a>
         )
       })}
     </section>

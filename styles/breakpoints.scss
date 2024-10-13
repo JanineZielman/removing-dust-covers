@@ -22,4 +22,16 @@
     margin-top: 100px;
     padding: 0 14px;
   }
+  .showcase{
+    padding: 100px 14px;
+    flex-direction: column;
+    .model{
+      width: 100%;
+      margin: 2% 1%;
+    }
+    h2{
+      margin-top: 14px;
+      font-size: 36px;
+    }
+  }
 }

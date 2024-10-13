@@ -1,0 +1,38 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "salmon"
+  },
+  "title": {
+    "__TYPE__": "FieldContent",
+    "value": "sets",
+    "type": "Text"
+  },
+  "subtitle": {
+    "__TYPE__": "FieldContent",
+    "value": "smoke",
+    "type": "Text"
+  },
+  "model": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "id": "mock_Media_link",
+      "kind": "image/jpeg",
+      "name": "mock_name",
+      "url": "https://source.unsplash.com/daily",
+      "size": "0",
+      "__TYPE__": "FileLink"
+    }
+  },
+  "description": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Fugiat ex aute non qui minim sit deserunt mollit consectetur esse. Cillum duis id veniam aliqua culpa quis non. Ipsum magna minim ut quis quis ipsum."
+        }
+      }
+    ]
+  }
+}

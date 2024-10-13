@@ -22,7 +22,9 @@ const Experience = ({ navigation, page, settings}) => {
         <meta property="og:description" content={settings.data.description} />
         <meta property="og:image" content={settings.data.image.url} />
       </Head>
-     
+      <div className="experience">
+        Coming soon...
+      </div>
     </Layout>
   );
 };

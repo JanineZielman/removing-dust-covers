@@ -65,6 +65,63 @@ interface HomeDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type HomeDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
+/** Content for Model documents */
+interface ModelDocumentData {
+    /**
+     * Title field in *Model*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: model.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Subtitle field in *Model*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: model.subtitle
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    subtitle: prismicT.KeyTextField;
+    /**
+     * Model field in *Model*
+     *
+     * - **Field Type**: Link to Media
+     * - **Placeholder**: *None*
+     * - **API ID Path**: model.model
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    model: prismicT.LinkToMediaField;
+    /**
+     * Description field in *Model*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: model.description
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Model document from Prismic
+ *
+ * - **API ID**: `model`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ModelDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<ModelDocumentData>, "model", Lang>;
 /** Content for Navigation documents */
 interface NavigationDocumentData {
     /**
@@ -236,7 +293,7 @@ interface ShowcaseDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type ShowcaseDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<ShowcaseDocumentData>, "showcase", Lang>;
-export type AllDocumentTypes = ExperienceDocument | HomeDocument | NavigationDocument | PageDocument | SettingsDocument | ShowcaseDocument;
+export type AllDocumentTypes = ExperienceDocument | HomeDocument | ModelDocument | NavigationDocument | PageDocument | SettingsDocument | ShowcaseDocument;
 /**
  * Item in List → Items
  *
@@ -311,6 +368,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { ExperienceDocumentData, ExperienceDocument, HomeDocumentData, HomeDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, ShowcaseDocumentData, ShowcaseDocument, AllDocumentTypes, ListSliceDefaultItem, ListSliceDefault, ListSliceVariation, ListSlice };
+        export type { ExperienceDocumentData, ExperienceDocument, HomeDocumentData, HomeDocument, ModelDocumentData, ModelDocument, NavigationDocumentData, NavigationDocumentDataMenuItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, SettingsDocumentData, SettingsDocument, ShowcaseDocumentData, ShowcaseDocument, AllDocumentTypes, ListSliceDefaultItem, ListSliceDefault, ListSliceVariation, ListSlice };
     }
 }
