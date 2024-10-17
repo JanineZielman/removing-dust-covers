@@ -27,9 +27,9 @@ const Showcase = ({ navigation, page, settings, models}) => {
         {models.map((item, i) => {
           return(
             <div className="model" key={`model${i}`}>
-              <model-viewer field-of-view="20deg" interaction-prompt="none" camera-orbit="auto auto auto" auto-rotate camera-controls touch-action="pan-y" src={item.data.model.url} alt="A 3D model of an astronaut"></model-viewer>
-              <h2>{item.data.title}</h2>
-              <h3>{item.data.subtitle}</h3>
+              <model-viewer disable-zoom field-of-view="20deg" interaction-prompt="none" camera-orbit="auto auto auto" auto-rotate camera-controls touch-action="pan-y" src={item.data.model.url} alt="A 3D model of an astronaut"></model-viewer>
+              <h3>{item.data.title}</h3>
+              <p>{item.data.subtitle}</p>
               <PrismicRichText field={item.data.description}/>
             </div>
           )
